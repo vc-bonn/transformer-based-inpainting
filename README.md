@@ -44,8 +44,9 @@ The full source code will be released soon.
 
 This work was supported by the European Regional Development Fund (ERDF) and the State of North Rhine-Westphalia as part of the operational program EFRE/JTF-Programm NRW 2021-2027. The project, titled 'Gen-AIvatar', was funded under the NEXT.IN.NRW competition with the grant agreement No. EFRE-20801085.
 
-Additionally, it has been funded by the Federal Ministry of Education and Research of Germany and the state of North-Rhine Westphalia as part of the Lamarr-Institute for Machine Learning and Artificial Intelligence and by the Federal Ministry of Education and Research under Grant
-No. 01IS22094A WEST-AI.
+Additionally, it has been funded by the Federal Ministry of Education and Research of Germany and the state of North-Rhine Westphalia as part of the Lamarr-Institute for Machine Learning and Artificial Intelligence and by the Federal Ministry of Education and Research under Grant No. 01IS22094A WEST-AI.
+
+The work has also been funded by the Ministry of Culture and Science North Rhine-Westphalia under grant number PB22-063A (InVirtuo 4.0: Experimental Research in Virtual Environments), and by the state of North Rhine Westphalia as part of the Excellency Start-up Center.NRW (U-BO-GROW) under grant number 03ESCNW18B.
 
 <p align="center">
     <a href="https://www.in.nrw/news/next-2024-11-25"><img src="./assets/nrw.png" alt="IN.NRW INNOVATIONSFÖRDERAGENTUR" width="30%"></a>
