@@ -9,7 +9,7 @@
 		<b><a href="https://cg.cs.uni-bonn.de/person/m-sc-mana-takhsha">Mana Takhsha</a></b>
         &nbsp;·&nbsp;
         <b><a href="https://cg.cs.uni-bonn.de/person/dr-hannah-droege">Hannah Dröge</a></b>
-        &nbsp;·&nbsp;
+        <br>
         <b><a href="https://cg.cs.uni-bonn.de/person/dr-patrick-stotko">Patrick Stotko</a></b>
         &nbsp;·&nbsp;
         <b><a href="https://cg.cs.uni-bonn.de/person/dr-markus-plack">Markus Plack</a></b>
