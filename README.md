@@ -23,7 +23,7 @@
     <h3 align="center">
         Paper (arxiv)
         &nbsp; | &nbsp;
-        <a href="https://cg.cs.uni-bonn.de/publication/holland-2026-transformer-based">Project Page</a>
+        <a href="https://vc-bonn.github.io/transformer-based-inpainting/">Project Page</a>
     </h3>
     <div align="center"></div>
 </p>
