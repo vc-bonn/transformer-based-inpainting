@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Transformer-Based Inpainting for Real-Time 3D Streaming in Sparse Multi-Camera Setups">
+    content="Transformer-Based Inpainting for Real-Time 3D Streaming in Sparse Multi-Camera Setups">
   <meta name="keywords" content="Transformer-Based Inpainting, Real-Time 3D Streaming, Sparse Multi-Camera Setups">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Transformer-Based Inpainting for Real-Time 3D Streaming in Sparse Multi-Camera Setups</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
@@ -26,448 +25,248 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+
 <body>
 
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
-
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Transformer-Based Inpainting for Real-Time 3D Streaming in Sparse Multi-Camera Setups</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/person/m-sc-leif-van-holland">Leif Van Holland</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/person/m-sc-domenic-zingsheim">Domenic Zingsheim</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/person/m-sc-mana-takhsha">Mana Takhsha</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/person/dr-hannah-droege">Hannah Dröge</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/person/dr-patrick-stotko">Patrick Stotko</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/person/dr-markus-plack">Markus Plack</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/person/prof-dr-reinhard-klein">Reinhard Klein</a>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">University of Bonn</span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Accepted at <a href="https://wacv.thecvf.com/Conferences/2026">WACV 2026</a></span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/vc-bonn/transformer-based-inpainting"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <section class="hero">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section> -->
-
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          High-quality 3D streaming from multiple cameras is crucial for immersive experiences in many
-          AR/VR applications. The limited number of views - often due to real-time constraints - leads
-          to missing information and incomplete surfaces in the rendered images. Existing approaches
-          typically rely on simple heuristics for the hole filling, which can result in inconsistencies
-          or visual artifacts. We propose to complete the missing textures using a novel, application-targeted
-          inpainting method independent of the underlying representation as an image-based post-processing
-          step after the novel view rendering. The method is designed as a standalone module compatible with
-          any calibrated multi-camera system. For this we introduce a multi-view aware, transformer-based
-          network architecture using spatio-temporal embeddings to ensure consistency across frames while
-          preserving fine details. Additionally, our resolution-independent design allows adaptation to
-          different camera setups, while an adaptive patch selection strategy balances inference speed and
-          quality, allowing real-time performance. We evaluate our approach against state-of-the-art
-          inpainting techniques under the same real-time constraints and demonstrate that our model achieves
-          the best trade-off between quality and speed, outperforming competitors in both image and video-based
-          metrics.
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/fw57Nw5gK-Y?si=mDlLEV1ZssISngpG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
+      <div class="container is-max-desktop">
         <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Transformer-Based Inpainting<br>for Real-Time 3D Streaming<br>in
+              Sparse Multi-Camera Setups</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://cg.cs.uni-bonn.de/person/m-sc-leif-van-holland">Leif Van Holland</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://cg.cs.uni-bonn.de/person/m-sc-domenic-zingsheim">Domenic Zingsheim</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://cg.cs.uni-bonn.de/person/m-sc-mana-takhsha">Mana Takhsha</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://cg.cs.uni-bonn.de/person/dr-hannah-droege">Hannah Dröge</a>,
+              </span><br>
+              <span class="author-block">
+                <a href="https://cg.cs.uni-bonn.de/person/dr-patrick-stotko">Patrick Stotko</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://cg.cs.uni-bonn.de/person/dr-markus-plack">Markus Plack</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://cg.cs.uni-bonn.de/person/prof-dr-reinhard-klein">Reinhard Klein</a>
+              </span>
             </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
 
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of Bonn</span>
+            </div>
 
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Accepted at <a href="https://wacv.thecvf.com/Conferences/2026">WACV
+                  2026</a></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark" disabled
+                    style="pointer-events: none; opacity: 0.5;">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark" disabled
+                    style="pointer-events: none; opacity: 0.5;">>
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=fw57Nw5gK-Y"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/vc-bonn/transformer-based-inpainting"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/images/pipeline.png" alt="Teaser image showing results of our inpainting method." />
+        <h2 class="subtitle has-text-centered">
+          Overview of the inpainting pipeline. The framework consists of two main stages:
+        </h2>
         <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
+          <ol style="margin-left: 1.5em;">
+            <li><b>Feature Encoding</b>, where input and context images are encoded into feature representations and
+              split into patches equipped with their spatiotemporal
+              coordinates
+            </li>
+            <li><b>Context Aggregation and Decoding</b>, utilizing a series of transformer groups and the contextual
+              information to
+              update the inpaint patches, that are finally decoded and blended with the known image regions. The flame
+              symbol indicates a module with
+              trainable parameters.</li>
+          </ol>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section> -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            High-quality 3D streaming from multiple cameras is crucial for immersive experiences in many
+            AR/VR applications. The limited number of views - often due to real-time constraints - leads
+            to missing information and incomplete surfaces in the rendered images. Existing approaches
+            typically rely on simple heuristics for the hole filling, which can result in inconsistencies
+            or visual artifacts. We propose to complete the missing textures using a novel, application-targeted
+            inpainting method independent of the underlying representation as an image-based post-processing
+            step after the novel view rendering. The method is designed as a standalone module compatible with
+            any calibrated multi-camera system. For this we introduce a multi-view aware, transformer-based
+            network architecture using spatio-temporal embeddings to ensure consistency across frames while
+            preserving fine details. Additionally, our resolution-independent design allows adaptation to
+            different camera setups, while an adaptive patch selection strategy balances inference speed and
+            quality, allowing real-time performance. We evaluate our approach against state-of-the-art
+            inpainting techniques under the same real-time constraints and demonstrate that our model achieves
+            the best trade-off between quality and speed, outperforming competitors in both image and video-based
+            metrics.
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fw57Nw5gK-Y?si=mDlLEV1ZssISngpG"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+  </section>
 
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{holland2026transformerbased,
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{holland2026transformerbased,
 	title = {Transformer-{Based} {Inpainting} for {Real}-{Time} 3D {Streaming} in {Sparse} {Multi}-{Camera} {Setups}},
 	author = {Holland, Leif Van and Zingsheim, Domenic and Takhsha, Mana and Dr{\" o}ge, Hannah and Stotko, Patrick and Plack, Markus and Klein, Reinhard},
 	booktitle = {Winter {Conference} on {Applications} in {Computer} {Vision} ({WACV})},
 	year = {2026},
 }</code></pre>
-  </div>
-</section>
-
-<section class="section" id="acknowledgments">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Acknowledgments</h2>
-    <p>
-      This work was supported by the European Regional Development Fund (ERDF)
-      and the State of North Rhine-Westphalia as part of the operational program
-      EFRE/JTF-Programm NRW 2021-2027. The project, titled 'Gen-AIvatar', was
-      funded under the NEXT.IN.NRW competition with the grant agreement No.
-      EFRE-20801085.
-
-      Additionally, it has been funded by the Federal Ministry of Education and
-      Research of Germany and the state of North-Rhine Westphalia as part of the
-      Lamarr-Institute for Machine Learning and Artificial Intelligence and by
-      the Federal Ministry of Education and Research under Grant No. 01IS22094A
-      WEST-AI.
-
-      The work has also been funded by the Ministry of Culture and Science North
-      Rhine-Westphalia under grant number PB22-063A (InVirtuo 4.0: Experimental
-      Research in Virtual Environments), and by the state of North Rhine
-      Westphalia as part of the Excellency Start-up Center.NRW (U-BO-GROW) under
-      grant number 03ESCNW18B.
-    </p>
-  </div>
-
-  <p align="center">
-      <a href="https://www.in.nrw/news/next-2024-11-25"><img src="./static/images/nrw.png" alt="IN.NRW INNOVATIONSFÖRDERAGENTUR" width="30%"></a>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://www.mkw.nrw/innovationswettbewerb-nextinnrw-land-und-eu-foerdern-innovative-projekte-mit-rund-42-millionen-euro"><img src="./static/images/ministry.jpg" alt="Ministerium für Wirtschaft, Industrie, Klimaschutz und Engergie des Landes Nordrhein-Westfalen" width="30%"></a>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://www.efre.nrw/en/easy-to-make/find-support/nextinnrw-innovation-competition"><img src="./static/images/eu.png" alt="Kofinanziert von der Europäischen Union" width="30%"></a>
-  </p>
-
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/vc-bonn/transformer-based-inpainting" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
     </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is based on the
-            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
-            project page template.
-          </p>
+  </section>
 
-</footer>
+  <section class="section" id="acknowledgments">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgments</h2>
+      <p>
+        This work was supported by the European Regional Development Fund (ERDF)
+        and the State of North Rhine-Westphalia as part of the operational program
+        EFRE/JTF-Programm NRW 2021-2027. The project, titled 'Gen-AIvatar', was
+        funded under the NEXT.IN.NRW competition with the grant agreement No.
+        EFRE-20801085.
 
+        Additionally, it has been funded by the Federal Ministry of Education and
+        Research of Germany and the state of North-Rhine Westphalia as part of the
+        Lamarr-Institute for Machine Learning and Artificial Intelligence and by
+        the Federal Ministry of Education and Research under Grant No. 01IS22094A
+        WEST-AI.
+
+        The work has also been funded by the Ministry of Culture and Science North
+        Rhine-Westphalia under grant number PB22-063A (InVirtuo 4.0: Experimental
+        Research in Virtual Environments), and by the state of North Rhine
+        Westphalia as part of the Excellency Start-up Center.NRW (U-BO-GROW) under
+        grant number 03ESCNW18B.
+      </p>
+      <div class="columns is-vcentered">
+        <div class="column is-one-third has-text-left">
+          <a href="https://www.efre.nrw/en/easy-to-make/find-support/nextinnrw-innovation-competition">
+            <img src="./static/images/eu.png" alt="Kofinanziert von der Europäischen Union"
+              style="height: 120px; width: auto; object-fit: contain;">
+          </a>
+        </div>
+        <div class="column is-one-third has-text-centered">
+          <a href="https://www.in.nrw/news/next-2024-11-25">
+            <img src="./static/images/nrw.png" alt="IN.NRW INNOVATIONSFÖRDERAGENTUR"
+              style="height: 120px; width: auto; object-fit: contain;">
+          </a>
+        </div>
+        <div class="column is-one-third has-text-right">
+          <a
+            href="https://www.mkw.nrw/innovationswettbewerb-nextinnrw-land-und-eu-foerdern-innovative-projekte-mit-rund-42-millionen-euro">
+            <img src="./static/images/ministry.jpg"
+              alt="Ministerium für Wirtschaft, Industrie, Klimaschutz und Engergie des Landes Nordrhein-Westfalen"
+              style="height: 120px; width: auto; object-fit: contain;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/vc-bonn/transformer-based-inpainting" class="external-link"
+          disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is based on the
+              <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+              project page template.
+            </p>
+
+  </footer>
 </body>
+
 </html>
