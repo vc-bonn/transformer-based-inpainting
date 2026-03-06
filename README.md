@@ -21,7 +21,7 @@
     </p>
     <h3 align="center">WACV 2026</h3>
     <h3 align="center">
-        Paper (arxiv)
+        <a href="http://arxiv.org/abs/2603.05507">Paper (arxiv)</a>
         &nbsp; | &nbsp;
         <a href="https://vc-bonn.github.io/transformer-based-inpainting/">Project Page</a>
     </h3>
