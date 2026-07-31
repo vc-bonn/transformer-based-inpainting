@@ -21,7 +21,7 @@
     </p>
     <h3 align="center">WACV 2026</h3>
     <h3 align="center">
-		<a href="https://openaccess.thecvf.com/content/WACV2026/papers/Van_Holland_Transformer-Based_Inpainting_for_Real-Time_3D_Streaming_in_Sparse_Multi-Camera_Setups_WACV_2026_paper.pdf" Paper</a>
+		<a href="https://openaccess.thecvf.com/content/WACV2026/papers/Van_Holland_Transformer-Based_Inpainting_for_Real-Time_3D_Streaming_in_Sparse_Multi-Camera_Setups_WACV_2026_paper.pdf">Paper</a>
 		&nbsp; | &nbsp;
         <a href="http://arxiv.org/abs/2603.05507">Paper (arxiv)</a>
         &nbsp; | &nbsp;
